@@ -36,15 +36,19 @@ switch (userChoice) {
 
 function show() {
     var artist = process.argv[3];
-    for (let i = 4; i < process.argv[3].length; i++) {
+    for (let i = 4; i < process.argv.length; i++) {
         artist += " " + process.argv[i];
     }
     
     var queryURL = `https://rest.bandsintown.com/artists/${artist}/events?app_id=${keys.bands.id}`
     axios.get(queryURL).then(
         function(response) {
-           console.log(response.data[0].venue);
-           console.log(response.data[0].datetime);
+         for (i = 0 ; i < response.data.length; i++) {
+           console.log("Venue Name: ", response.data[i].venue.name);
+           console.log("Date & Time: ", response.data[i].datetime);
+           console.log("Location: ", response.data[i].venue.city + ", " + response.data[i].venue.country)
+           console.log("-----------------------------");
+        }
         }
     )
 }   
@@ -58,7 +62,7 @@ function song() {
     spotify
         .search({ type: 'track', query: songName, limit: 1 })
         .then(function (response) {
-            var myJSON = JSON.stringify(response, null, 2);
+            // var myJSON = JSON.stringify(response, null, 2);
            
             console.log("Artist Name: ", response.tracks.items[0].album.artists[0].name);
             console.log("PreviewLink: ", response.tracks.items[0].album.external_urls.spotify);

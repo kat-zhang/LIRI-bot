@@ -8,6 +8,6 @@ exports.spotify = {
 };
 
 exports.bands = {
-    secret: process.env.BANDS_API_KEY
+    id: process.env.BANDS_API_KEY
 };
   
