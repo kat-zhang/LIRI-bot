@@ -16,7 +16,7 @@ var userChoice = process.argv[2];
 
 switch (userChoice) {
     case 'concert-this':
-    
+        show();
         console.log('concert');
         break;
 
@@ -35,15 +35,16 @@ switch (userChoice) {
 }
 
 function show() {
-    var concert = process.argv[3];
+    var artist = process.argv[3];
     for (let i = 4; i < process.argv[3].length; i++) {
-        concert += " " + process.argv[i];
+        artist += " " + process.argv[i];
     }
-    concert
-    var queryURL = `https://rest.bandsintown.com/artists/${artistName}?app_id=${keys.bands.id}`
+    
+    var queryURL = `https://rest.bandsintown.com/artists/${artist}/events?app_id=${keys.bands.id}`
     axios.get(queryURL).then(
         function(response) {
-            console.log()
+           console.log(response.data[0].venue);
+           console.log(response.data[0].datetime);
         }
     )
 }   
