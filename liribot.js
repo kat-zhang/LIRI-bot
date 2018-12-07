@@ -45,9 +45,9 @@ function show() {
         function(response) {
          for (i = 0 ; i < response.data.length; i++) {
            console.log("Venue Name: ", response.data[i].venue.name);
-           console.log("Date & Time: ", response.data[i].datetime);
+           console.log("Date & Time: ", moment(response.data[i].datetime).format('LLL'));
            console.log("Location: ", response.data[i].venue.city + ", " + response.data[i].venue.country)
-           console.log("-----------------------------");
+           console.log("---------------------------------------");
         }
         }
     )
