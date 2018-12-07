@@ -1,6 +1,6 @@
 //this file is a node module 
 
-console.log('this is loaded');
+// console.log('this is loaded');
 
 exports.spotify = {
     id: process.env.SPOTIFY_ID,

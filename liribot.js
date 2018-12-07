@@ -1,21 +1,27 @@
 require("dotenv").config();
+
 var Spotify = require('node-spotify-api');
 var axios = require('axios');
 var moment = require('moment');
-// var spotify =  new Spotify(keys.spotify);
+
 
 //keys was created locally so you must include the path
 var keys = require('./keys')
-console.log(keys.spotify);
+// console.log(keys.spotify);
+
+var spotify =  new Spotify(keys.spotify);
 
 var userChoice = process.argv[2];
 
+
 switch (userChoice) {
-    // case 'concert-this':
-    //     console.log('concert');
-    //     break;
+    case 'concert-this':
+    
+        console.log('concert');
+        break;
 
     case 'spotify-this-song': 
+        song();
         console.log('spotify');
         break;
 
@@ -28,6 +34,14 @@ switch (userChoice) {
         break;
 }
 
+function show() {
+    var concert = process.argv[3];
+    for (let i = 4; i < process.argv[3].length; i++) {
+        concert += " " + process.argv[i];
+    }
+
+    var queryURL = "https://rest.bandsintown.com/artists/${artistName}?app_id=${keys.bands.id}"
+}   
 
 function song() {
     var songName = process.argv[3];
@@ -42,11 +56,11 @@ function song() {
             // console.log("%%%%", response.tracks.items.artists);
             // console.log(myJSON.tracks.href);
             // console.log(myJSON);
-            console.log(response.tracks.items[0].album.artists[0].name);
-            console.log(response.tracks.items[0].album.external_urls.spotify);
+            console.log("Artist Name: ", response.tracks.items[0].album.artists[0].name);
+            console.log("PreviewLink: ", response.tracks.items[0].album.external_urls.spotify);
             // console.log(response.tracks.external_urls.spotify);
-            console.log(response.tracks.items[0].album.name);
-            console.log(response.tracks.items[0].name);
+            console.log("Featured Album: ", response.tracks.items[0].album.name);
+            console.log("Song Title: ", response.tracks.items[0].name);
 
 
         })
@@ -54,3 +68,4 @@ function song() {
             console.log(err);
         });
 }
+
