@@ -39,8 +39,13 @@ function show() {
     for (let i = 4; i < process.argv[3].length; i++) {
         concert += " " + process.argv[i];
     }
-
-    var queryURL = "https://rest.bandsintown.com/artists/${artistName}?app_id=${keys.bands.id}"
+    concert
+    var queryURL = `https://rest.bandsintown.com/artists/${artistName}?app_id=${keys.bands.id}`
+    axios.get(queryURL).then(
+        function(response) {
+            console.log()
+        }
+    )
 }   
 
 function song() {
@@ -53,12 +58,9 @@ function song() {
         .search({ type: 'track', query: songName, limit: 1 })
         .then(function (response) {
             var myJSON = JSON.stringify(response, null, 2);
-            // console.log("%%%%", response.tracks.items.artists);
-            // console.log(myJSON.tracks.href);
-            // console.log(myJSON);
+           
             console.log("Artist Name: ", response.tracks.items[0].album.artists[0].name);
             console.log("PreviewLink: ", response.tracks.items[0].album.external_urls.spotify);
-            // console.log(response.tracks.external_urls.spotify);
             console.log("Featured Album: ", response.tracks.items[0].album.name);
             console.log("Song Title: ", response.tracks.items[0].name);
 
