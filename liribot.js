@@ -15,12 +15,13 @@ var userChoice = process.argv[2];
 
 
 switch (userChoice) {
+    /// Switch-case for concert info, calls concertInfo fx
     case 'concert-this':
-        concert();
+        concertInfo();
         console.log('concert');
         break;
 
-    /// Switch-case for song info
+    /// Switch-case for song info, calls songInfo fx
     case 'spotify-this-song': 
     var songName = process.argv[3];
 
@@ -37,7 +38,7 @@ switch (userChoice) {
 
     }
 }
-        song();
+        songInfo();
         console.log('spotify');
         break;
 
@@ -55,7 +56,7 @@ switch (userChoice) {
 }
 
 // Function to show concert based on user input 
-function concert() {
+function concertInfo() {
     var artist = process.argv[3];
     for (let i = 4; i < process.argv.length; i++) {
         artist += " " + process.argv[i];
@@ -74,7 +75,7 @@ function concert() {
     )
 }
 
-function song() {
+function songInfo() {
 //     var songName = process.argv[3];
 //     if (process.argv[3]=== undefined) {
 //         songName = "Ace of Base"
@@ -91,7 +92,6 @@ function song() {
     spotify
         .search({ type: 'track', query: songName, limit: 1 })
         .then(function (response) {
-            // var myJSON = JSON.stringify(response, null, 2);
         
             console.log("Artist Name: ", response.tracks.items[0].album.artists[0].name);
             console.log("PreviewLink: ", response.tracks.items[0].album.external_urls.spotify);
@@ -114,7 +114,7 @@ function whatever() {
         // console.log(dataArr);
         if (dataArr[0] === "spotify-this-song") {
             songName = dataArr[1];
-            song();
+            songInfo();
         }
 
     });
