@@ -25,7 +25,7 @@ switch (userChoice) {
     case 'spotify-this-song': 
     var songName = process.argv[3];
 
-    // Condition so the info for Ace of Base is displayed if there is no user input
+    // Condition so the info for The Sign is displayed if there is no user input after "...spotify-this-song"
     if (process.argv[3]=== undefined) {
         songName = "Ace of Base"
 
@@ -43,6 +43,20 @@ switch (userChoice) {
         break;
 
     case 'movie-this': 
+    var movieTitle = process.argv[3];
+
+    // Condition so the info for Mr. Robot is displayed if there is no user  input after "...movie-this"
+    if (process.argv[3]=== undefined) {
+        movieTitle = "Mr. Nobody"
+
+    }
+    else {
+        movieTitle === process.argv[3]
+    
+    for (let i = 4; i < process.argv.length; i++) {
+        movieTitle += " " + process.argv[i];
+    }
+}
         movieInfo();
         console.log('movie');
         break;
@@ -99,7 +113,7 @@ function songInfo() {
 
 
 function movieInfo() {
-    var movieTitle = process.argv[3];
+    // var movieTitle = process.argv[3];
     for (let i = 4; i < process.argv.length; i++) {
         movieTitle += " " + process.argv[i];
     }
