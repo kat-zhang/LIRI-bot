@@ -15,17 +15,31 @@ var userChoice = process.argv[2];
 
 
 switch (userChoice) {
-    /// Switch-case for concert info, calls concertInfo fx
+// Switch statement for concert info
     case 'concert-this':
+    var artist = process.argv[3];
+    
+// Condition so Metallica's lastest tour dates are displayed if there is no user input after "...concert-this"
+    if (process.argv[3] === undefined){
+       artist = "Metallica"
+       console.log("Metallica's upcoming shows:")
+    }
+    else {
+        artist === process.argv[3]
+    }
+    for (let i = 4; i < process.argv.length; i++) {
+        artist += " " + process.argv[i];
+    }
+
+// Calls concertInfo fx, displays info for user input
         concertInfo();
         console.log('concert');
         break;
 
-    /// Switch-case for song info, calls songInfo fx
+// Switch statement for song info
     case 'spotify-this-song': 
     var songName = process.argv[3];
 
-    // Condition so the info for The Sign is displayed if there is no user input after "...spotify-this-song"
     if (process.argv[3]=== undefined) {
         songName = "Ace of Base"
 
@@ -38,14 +52,15 @@ switch (userChoice) {
 
     }
 }
+
         songInfo();
         console.log('spotify');
         break;
-
+   
+// Switch statement for movie info
     case 'movie-this': 
     var movieTitle = process.argv[3];
 
-    // Condition so the info for Mr. Robot is displayed if there is no user  input after "...movie-this"
     if (process.argv[3]=== undefined) {
         movieTitle = "Mr. Nobody"
 
@@ -57,15 +72,17 @@ switch (userChoice) {
         movieTitle += " " + process.argv[i];
     }
 }
+
         movieInfo();
         console.log('movie');
         break;
 
-    /// Switch-case for readFile fx
+/// Switch statement for whatever fx with read/writeFile module
     case 'do-what-it-says':
     whatever();
     break;
-    /// If user does not type anything in command line after "node liribot"
+
+/// If user does not type anything in command line after "node liribot"
     default:
         console.log('please enter something!');
         break;
@@ -73,10 +90,10 @@ switch (userChoice) {
 
 // Function to show concert based on user input 
 function concertInfo() {
-    var artist = process.argv[3];
-    for (let i = 4; i < process.argv.length; i++) {
-        artist += " " + process.argv[i];
-    }
+    // var artist = process.argv[3];
+    // for (let i = 4; i < process.argv.length; i++) {
+    //     artist += " " + process.argv[i];
+    // }
     
     var queryURL = `https://rest.bandsintown.com/artists/${artist}/events?app_id=${keys.bands.id}`
     axios.get(queryURL).then(
@@ -114,9 +131,9 @@ function songInfo() {
 
 function movieInfo() {
     // var movieTitle = process.argv[3];
-    for (let i = 4; i < process.argv.length; i++) {
-        movieTitle += " " + process.argv[i];
-    }
+    // for (let i = 4; i < process.argv.length; i++) {
+    //     movieTitle += " " + process.argv[i];
+    // }
     var queryURL = `http://www.omdbapi.com/?t=${movieTitle}&y=&plot=short&apikey=${keys.movies.id}`;
     axios.get(queryURL).then(
         function(response) {
