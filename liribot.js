@@ -160,8 +160,8 @@ function whatever() {
         if (dataArr[0] === "spotify-this-song") {
             songName = dataArr[1];
             songInfo();
-            console.log("LIRI has spoken:");
-            console.log("");
+            console.log("LIRI has spoken:")
+            console.log("")
         }
 
     });
