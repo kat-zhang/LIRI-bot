@@ -20,8 +20,11 @@ switch (userChoice) {
         console.log('concert');
         break;
 
+    /// Switch-case for song info
     case 'spotify-this-song': 
     var songName = process.argv[3];
+
+    // Condition so the info for Ace of Base is displayed if there is no user input
     if (process.argv[3]=== undefined) {
         songName = "Ace of Base"
 
@@ -51,6 +54,7 @@ switch (userChoice) {
         break;
 }
 
+// Function to show concert based on user input 
 function concert() {
     var artist = process.argv[3];
     for (let i = 4; i < process.argv.length; i++) {
@@ -107,7 +111,7 @@ function whatever() {
             return console.log(error);
         }
         var dataArr = data.split(",");
-        console.log(dataArr);
+        // console.log(dataArr);
         if (dataArr[0] === "spotify-this-song") {
             songName = dataArr[1];
             song();
