@@ -1,4 +1,4 @@
-require("dotenv").config();
+require('dotenv').config();
 
 var Spotify = require('node-spotify-api');
 var axios = require('axios');
@@ -16,13 +16,13 @@ var userChoice = process.argv[2];
 
 switch (userChoice) {
 // Switch statement for concert info
-    case 'concert-this':
+    case "concert-this":
     var artist = process.argv[3];
     
 // Condition so Metallica's lastest tour dates are displayed if there is no user input after "...concert-this"
     if (process.argv[3] === undefined){
        artist = "Metallica"
-       console.log("Metallica's upcoming shows:")
+
     }
     else {
         artist === process.argv[3]
@@ -33,11 +33,12 @@ switch (userChoice) {
 
 // Calls concertInfo fx, displays info for user input
         concertInfo();
-        console.log('concert');
+        console.log(artist + "'s upcoming concerts:");
+        console.log("");
         break;
 
 // Switch statement for song info
-    case 'spotify-this-song': 
+    case "spotify-this-song": 
     var songName = process.argv[3];
 
     if (process.argv[3]=== undefined) {
@@ -52,13 +53,13 @@ switch (userChoice) {
 
     }
 }
-
         songInfo();
-        console.log('spotify');
+        console.log("About this song:");
+        console.log("");
         break;
    
 // Switch statement for movie info
-    case 'movie-this': 
+    case "movie-this": 
     var movieTitle = process.argv[3];
 
     if (process.argv[3]=== undefined) {
@@ -72,19 +73,18 @@ switch (userChoice) {
         movieTitle += " " + process.argv[i];
     }
 }
-
         movieInfo();
-        console.log('movie');
+        console.log("movie");
         break;
 
 /// Switch statement for whatever fx with read/writeFile module
-    case 'do-what-it-says':
+    case "do-what-it-says":
     whatever();
     break;
 
 /// If user does not type anything in command line after "node liribot"
     default:
-        console.log('please enter something!');
+        console.log("please enter something!");
         break;
 }
 
@@ -111,7 +111,7 @@ function concertInfo() {
 function songInfo() {
 
     spotify
-        .search({ type: 'track', query: songName, limit: 1 })
+        .search({ type: "track", query: songName, limit: 1 })
         .then(function (response) {
         
             console.log("- Song Title: ", response.tracks.items[0].name);
@@ -160,6 +160,8 @@ function whatever() {
         if (dataArr[0] === "spotify-this-song") {
             songName = dataArr[1];
             songInfo();
+            console.log("LIRI has spoken:");
+            console.log("");
         }
 
     });
