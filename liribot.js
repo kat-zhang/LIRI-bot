@@ -79,7 +79,7 @@ switch (userChoice) {
 
 /// Switch statement for whatever fx with read/writeFile module
     case "do-what-it-says":
-    whatever();
+    readWhatever();
     break;
 
 /// If user does not type anything in command line after "node liribot"
@@ -119,9 +119,6 @@ function songInfo() {
             console.log("- Featured Album: ", response.tracks.items[0].album.name);
             console.log("- Preview Link: ", response.tracks.items[0].album.external_urls.spotify);
             
-            
-
-
         })
         .catch(function (err) {
             console.log(err);
@@ -150,7 +147,7 @@ function movieInfo() {
 }
 
 
-function whatever() {
+function readWhatever() {
     fs.readFile("random.txt", "utf8", function (error, data) {
         if (error) {
             return console.log(error);
@@ -166,3 +163,4 @@ function whatever() {
 
     });
 } 
+
