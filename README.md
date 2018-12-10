@@ -18,7 +18,7 @@ LIRI-bot is used to find information on films, songs and concert dates through t
 To use LIRI-bot:
 
 1. Open the terminal and navigate the relative path to the file liribot.js. 
-2. Start the command with *node liribot* and then: 
+2. Start the command by typing *node liribot* and then: 
 
 
   - Type *movie-this* followed by a movie title
@@ -29,6 +29,8 @@ To use LIRI-bot:
 
   3. Once the user hits enter LIRI-bot will provide a **response** with either information on a movie, upcoming concert dates
   or general information on a song based on the user's **request**. 
+
+  #####Please note - LIRI-bot can only respond to one request at a time
 
 
 
