@@ -32,10 +32,14 @@ To use LIRI-bot:
   or general information on a song based on the user's **request**. 
 
   
-
 # Demonstration
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=nSs6IVjA4_g
 " target="_blank"><img src="http://img.youtube.com/vi/nSs6IVjA4_g/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="480" height="360" border="10" /></a>
 
 
+# Future Development
+
+  - Implement the inquirer package so the user can select to either look up a song, movie or concert dates. It would
+no longer be necessary for the user to type out the *movie-this*, *concert-this* etc...
+  
