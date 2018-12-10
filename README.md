@@ -30,7 +30,7 @@ To use LIRI-bot:
   3. Once the user hits enter LIRI-bot will provide a **response** with either information on a movie, upcoming concert dates
   or general information on a song based on the user's **request**. 
 
-  #####Please note - LIRI-bot can only respond to one request at a time
+  ##### Please note:  LIRI-bot can only respond to one request at a time
 
 
 
