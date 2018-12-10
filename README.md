@@ -12,11 +12,11 @@ To use LIRI-bot:
 2. Start the command with "node liribot" 
 
 
-  - Type "movie-this" followed by a movie title
-  - Type "concert-this" followed by musical artist
-  - Type "spotify-this-song" followed by a song title
+  - Type *movie-this* followed by a movie title
+  - Type *concert-this* followed by musical artist
+  - Type *spotify-this-song* followed by a song title
   - To get a surprise do not include a movie, musician or song after the above phrases
-  OR type the phrase "do-what-it-says"
+  OR type the phrase *do-what-it-says*
 
   3. Once the user hits enter LIRI-bot will provide a **response** with either information on a movie, upcoming concert dates
   or general information on a song based on the user's **request**. 
